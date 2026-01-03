@@ -60,52 +60,19 @@ const fromHex = (hexString) =>
 const toHex = (bytes) =>
   bytes.reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
 
-
-async function encryptData(secretData, password) {
+async function decryptData(encryptedData, password, salt, nonce) {
    try {
-       const salt = fromHex("ffddff");
-       const iv = fromHex("ffddcc")
-
-       const passwordKey = await getPasswordKey(password);
-
-       const iterations = 1000000
-       const aesKey = await deriveKey(passwordKey, salt, iterations, ["encrypt"], "SHA-256");
-
-
-       const k = await exportKey(aesKey);
-
-       const encryptedContent = await window.crypto.subtle.encrypt(
-           {
-               name: "AES-GCM",
-               iv: iv,
-           },
-           aesKey,
-           enc.encode(secretData)
-       );
-
-       const encryptedContentArr = new Uint8Array(encryptedContent);
-       let buff = new Uint8Array(
-           salt.byteLength + iv.byteLength + encryptedContentArr.byteLength
-       );
-       buff.set(salt, 0);
-       buff.set(iv, salt.byteLength);
-       buff.set(encryptedContentArr, salt.byteLength + iv.byteLength);
-       const base64Buff = buff_to_base64(buff);
-       return base64Buff;
-   } catch (e) {
-       console.log(`Error - ${e}`);
-       console.log(e.stack)
-       return "";
-   }
-}
-
-async function decryptData(encryptedData, authentication_tag, password, salt, nonce) {
-   try {
+       console.log(0)
        const iv = base64_to_buf(nonce)
-       const data = base64_to_buf(encryptedData + authentication_tag)
+       console.log(1)
+       const data = base64_to_buf(encryptedData)
+       console.log(2)
        const passwordKey = await getPasswordKey(password);
+       console.log(3)
        const iterations = 1000000
+       console.log(4)
        const aesKey = await deriveKey(passwordKey, salt, iterations, ["decrypt"], "SHA-256");
+       console.log(5)
        const decryptedContent = await window.crypto.subtle.decrypt(
            {
                name: "AES-GCM",
@@ -114,6 +81,7 @@ async function decryptData(encryptedData, authentication_tag, password, salt, no
            aesKey,
            data
        );
+       console.log(6)
        return dec.decode(decryptedContent);
    } catch (e) {
        console.log(`Error - ${e}`);
@@ -129,12 +97,13 @@ $(document).ready(() => {
     imgs = images[k]
 
     password = prompt("password: ")
-    Object.entries(imgs).forEach( ([key, value]) => {
-        decryptData(value["ciphertext"], value["tag"], password, fromHex(salt), value["nonce"]).then((dec) => {
-            console.log(dec)
-        })
-        decryptData("JPX6ngpj", "8dHvpSqSHabt1b9z91cB9Q==", password, fromHex("ffddff"), "/93M").then((dec) => {
-            console.log(dec)
+    Object.entries(imgs).forEach( ([image_name, value]) => {
+        decryptData(value["ciphertext"], password, fromHex(salt), value["nonce"]).then((dec) => {
+            if (image_name == "rsvp") {
+                $(".rsvp").attr("href", dec)
+            } else {
+                $("img[src='" + image_name + "']").attr("src", "data:image/png;base64, " + dec)
+            }
         })
     })
 })

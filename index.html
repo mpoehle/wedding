@@ -3,8 +3,8 @@
 	  <link rel="stylesheet" href="index.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	  <script src="images.js"></script>
-	  <script src="decrypt_images.js"></script>
 	  <script src="index.js"></script>
+	  <script src="decrypt_images.js"></script>
   </head>
   <body>
 	  <div id="leaves"></div>
@@ -13,24 +13,46 @@
 		  <h4>May 19, 2026</h4>
 		  <h4 id="countdown">very soon!</h4>
 		  <div class="nav">
-                      <div class="navitem link">Home</div>
-                      <div class="navitem link">Photos</div>
-                      <div class="navitem link">Wedding Party</div>
-                      <div class="navitem link">Dress Code</div>
-                      <div class="navitem link">Things to Do</div>
+			  <div class="navitem link" data-linkto="home">Home</div>
+			  <div class="navitem link" data-linkto="photos">Photos</div>
+			  <div class="navitem link" data-linkto="wedding-party">Invitation</div>
+			  <div class="navitem link" data-linkto="dress-code">Details</div>
+			  <div class="navitem link" data-linkto="things-to-do">FAQ</div>
 		  </div>
 	  </div>
 
 	  <div id="content">
-		  <img class="pic" src="https://placecats.com/500/300" />
-		  <h2 class="fancy">Wedding Day</h2>
-	          <h4>May 19 2026</h4>
-		  <br />
-		  <a class="rsvp" href="https://www.google.com" target="blank"><h4>RSVP!</h4></a>
+		  <div id="home">
+			  <img class="pic" src="https://placecats.com/600/400" />
+			  <h2 class="fancy">Wedding Day</h2>
+				  <h4>May 19 2026</h4>
+			  <br />
+			  <a class="rsvp" href="" target="blank"><h4>RSVP!</h4></a>
+		  </div>
+		  <div id="photos">
+			  empty
+		  </div>
+		  <div id="wedding-party">
+			  <img class="pic" src="1st page final.png" />
+		  </div>
+		  <div id="dress-code">
+			  <img class="pic" src="2nd page final.png" />
+		  </div>
+		  <div id="things-to-do">
+			  <br /><br />
+			  <h2 class="fancy">Frequently asked Questions:</h2>
+			  <br />
+			  <ul>
+				  <li>Will there be mosquitoes? <br />- probably, please bring some repellant</li>
+				  <li>I've seen a lot of pictures with a pool, can I use it? <br />- yes, please bring appropriate clothes.</li>
+			  </ul>
+			  <br /><br />
+			  <img class="pic" src="timmy_pool.png" />
+		  </div>
 	  </div>
 
 	  <div id="footer">
-		<h2>J & M</h2>
+		<h2 style="font-family: 'Priestacy'; font-size: 2.2rem;">J & M</h2>
 	  </div>
   </body>
 </html>	

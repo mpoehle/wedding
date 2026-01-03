@@ -2,6 +2,10 @@
   font-family: AlexBrush; /* set name */
   src: url("Alex_Brush/AlexBrush-Regular.ttf"); /* url of the font */
 }
+@font-face {
+  font-family: Priestacy; /* set name */
+  src: url("Priestacy/Priestacy.otf"); /* url of the font */
+}
 
 body {
   background: url("static/bg.png");
@@ -39,6 +43,13 @@ body {
   opacity: 0;
   transition: all 5s;
 }
+#content > div {
+    width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 2.1rem;
+}
+
 
 #footer {
     width: 100%;
@@ -81,12 +92,12 @@ h1 {
 }
 h2 {
   font-family: "AlexBrush", "Brush Script MT", cursive;
-  font-size: 30px;
+  font-size: 2.5rem;
   text-transform: none;
 }
 
 #header .nav {
-  width: 400px;
+  width: 300px;
   margin: 40px auto;
 }
 #header .nav .navitem {
