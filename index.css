@@ -29,6 +29,7 @@ body {
 	 width: 100%;
 	 min-width: 800px;
 	 transition: all 3s;
+	 pointer-events: none;
 }
 #header {
   opacity: 0;
@@ -40,10 +41,11 @@ body {
 }
 
 #footer {
- width: 100%;
- min-height: 420px;
- margin-top: 40px;
- position: relative;
+    width: 100%;
+    min-height: 420px;
+    margin-top: 40px;
+    position: relative;
+    pointer-events: none;
 }
 #footer:before {
     content: "";
