@@ -147,6 +147,11 @@ img.pic:hover {
 	margin-top: 40px;
 }
 
+ul li {
+    margin-bottom: 10px;
+    line-height: 1.5rem;
+}
+
 @media screen and (max-device-width: 800px) {
   #content {
     min-height: calc(100% - 880px);
@@ -163,12 +168,34 @@ img.pic:hover {
     height: 500px;
   }
   #header .nav {
-    width: 525px;
+    width: 537px;
   }
   .rsvp {
     width: 109px;
     padding: 10px 5px 5px 5px;
   }
+}
+
+#photos {
+    height: 420px;
+    padding: 0 10px;
+    overflow: hidden;
+    position: relative
+}
+
+#photos .pic {
+    height: 370px;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 2s;
+    cursor: pointer;
+}
+#photos .pic.visible {
+    height: 370px;
+    object-fit: cover;
+    position: absolute;
+    opacity: 1;
 }
 
 @media only screen and (max-device-width: 400px) {
@@ -180,7 +207,7 @@ img.pic:hover {
     height: 550px;
   }
   #header .nav {
-    width: 762px;
+    width: 780px;
   }
   .rsvp {
     width: 159px;
