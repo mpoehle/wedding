@@ -154,7 +154,7 @@ ul li {
 
 @media screen and (max-device-width: 800px) {
   #content {
-    min-height: calc(100% - 880px);
+    min-height: calc(100% - 1010px);
   }
 
   html {
@@ -192,9 +192,6 @@ ul li {
     cursor: pointer;
 }
 #photos .pic.visible {
-    height: 370px;
-    object-fit: cover;
-    position: absolute;
     opacity: 1;
 }
 
@@ -216,5 +213,26 @@ ul li {
 
   h1 {
     font-size: 110px;
+  }
+
+  #photos {
+    width: 780px !important;
+    height: 540px;
+    padding: 0 10px;
+    overflow: hidden;
+    position: relative
+  }
+
+  #photos .pic {
+    width: 780px !important;
+    height: 500px;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 2s;
+    cursor: pointer;
+  }
+  #photos .pic.visible {
+    opacity: 1;
   }
 }
