@@ -146,3 +146,48 @@ img.pic:hover {
 #footer {
 	margin-top: 40px;
 }
+
+@media screen and (max-device-width: 800px) {
+  #content {
+    min-height: calc(100% - 880px);
+  }
+
+  html {
+    font-size: 2rem;
+  }
+  body {
+    background-repeat: round;
+  }
+
+  #header {
+    height: 500px;
+  }
+  #header .nav {
+    width: 525px;
+  }
+  .rsvp {
+    width: 109px;
+    padding: 10px 5px 5px 5px;
+  }
+}
+
+@media only screen and (max-device-width: 400px) {
+  html {
+    font-size: 3rem;
+  }
+
+  #header {
+    height: 550px;
+  }
+  #header .nav {
+    width: 762px;
+  }
+  .rsvp {
+    width: 159px;
+    padding: 10px 10px 5px 10px;
+  }
+
+  h1 {
+    font-size: 110px;
+  }
+}
